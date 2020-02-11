@@ -1,0 +1,118 @@
+#content {
+  background-color: #1E2A4A;
+  color: #F7F9FA;
+  text-align: center;
+  padding: 10px;
+}
+
+#container {
+  background-color: #1E2A4A;
+  color: #F7F9FA;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#header {
+  background-color: #1E2A4A;
+  color: #F7F9FA;
+  text-align: center;
+}
+
+#record_container {
+  border-style: solid;
+  background-color: #1E2A4A;
+  color: #F7F9FA;
+  margin-left: 2%;
+  width: 30%;
+  float: left;
+}
+
+#camera_container {
+  border-style: solid;
+  background-color: #1E2A4A;
+  color: #F7F9FA;
+  margin-left: 34%;
+  margin-right: 2%;
+  width: auto;
+}
+
+
+#body {
+  background-color: #F7F9FA;
+  text-align: center;
+  margin: auto;
+}
+
+
+ul#nav_list {
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #1E2A4A;
+  justify-content: center;
+  display: flex;
+}
+
+ul#nav_list li {
+  border-left: 1px solid #bbb;
+  border-right: 1px solid #bbb;
+  font-size: 25px;
+  padding: 10px;
+  color: #999;
+}
+
+ul#nav_list li#focus {
+  border-left: 1px solid #bbb;
+  border-right: 1px solid #bbb;
+  font-size: 25px;
+  padding: 10px;
+  color: #fff;
+}
+
+#sample {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+#image {
+  display: table-cell;
+  margin: 10px;
+}
+
+#arrow {
+  display: table-cell;
+  vertical-align: middle;
+  width: 200px;
+}
+
+.sample_im {
+  width: 400px;
+  border: 6px inset #4679F2;
+}
+
+#sample_name {
+  float: left;
+  font-size: 20px;
+  margin: 0;
+}
+
+#figure_text {
+  float: center;
+  font-size: 15px;
+  margin: 0;
+}
+
+
+
+#navigator {
+  background-color: #1E2A4A;
+  color: #F7F9FA;
+}
+
+#footer {
+  background-color: #1E2A4A;
+  color: #F7F9FA;
+  text-align: center;
+  padding: 10px;
+  clear: both;
+}
