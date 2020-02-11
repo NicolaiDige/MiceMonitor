@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Mouse Page Test</title>
+  </head>
+  <body>
+    Hello There<br>
+    <img src="mouse.jpeg" id="myImage" width="500" height="500">
+    <script>
+      setInterval(function() {
+        var myImageElement = document.getElementById('myImage');
+        myImageElement.src = 'mouse.jpeg?rand=' + Math.random();
+      }, 5000);
+    </script>
+  </body>
+</html>
