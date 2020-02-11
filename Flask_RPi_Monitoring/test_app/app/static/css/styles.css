@@ -18,95 +18,115 @@
   text-align: center;
 }
 
+#file_overview {
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 300px;
+}
+
+#fixed_header{
+    width: 500px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+#fixed_header tbody{
+  display:block;
+  width: 100%;
+  overflow: auto;
+  height: 200px;
+  background: grey;
+}
+
+#fixed_header thead tr {
+  text-align: left;
+  display: block;
+  width: 500px;
+}
+
+#fixed_header thead {
+  background: black;
+  color:#fff;
+  width: 500px;
+}
+
+#fixed_header th, #fixed_header td {
+  padding: 0px;
+  text-align: center;
+  width: 120px;
+  font-size: 16px;
+}
+
+.button_click {
+  background-color: #BB2003;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 50px;
+}
+
+.button_no_click {
+  background-color: #AAAAAA;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  width: 50px;
+}
+
+#record_buttons {
+  margin-bottom: 5%;
+  width: auto;
+}
+
 #record_container {
   border-style: solid;
   background-color: #1E2A4A;
   color: #F7F9FA;
   margin-left: 2%;
-  width: 30%;
+  width: 40%;
   float: left;
+  height: 450px;
 }
 
 #camera_container {
   border-style: solid;
   background-color: #1E2A4A;
   color: #F7F9FA;
-  margin-left: 34%;
+  margin-left: 44%;
   margin-right: 2%;
   width: auto;
+  height: 450px;
 }
 
+#record_time {
+  color: white;
+  font-size: 40px;
+}
 
-#body {
-  background-color: #F7F9FA;
-  text-align: center;
+#camera_view {
+  width: 100%;
   margin: auto;
 }
 
-
-ul#nav_list {
-  list-style-type: none;
-  overflow: hidden;
-  background-color: #1E2A4A;
-  justify-content: center;
-  display: flex;
-}
-
-ul#nav_list li {
-  border-left: 1px solid #bbb;
-  border-right: 1px solid #bbb;
-  font-size: 25px;
-  padding: 10px;
-  color: #999;
-}
-
-ul#nav_list li#focus {
-  border-left: 1px solid #bbb;
-  border-right: 1px solid #bbb;
-  font-size: 25px;
-  padding: 10px;
-  color: #fff;
-}
-
-#sample {
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-}
-
-#image {
-  display: table-cell;
-  margin: 10px;
-}
-
-#arrow {
-  display: table-cell;
-  vertical-align: middle;
-  width: 200px;
-}
-
-.sample_im {
-  width: 400px;
-  border: 6px inset #4679F2;
-}
-
-#sample_name {
-  float: left;
-  font-size: 20px;
-  margin: 0;
-}
-
-#figure_text {
-  float: center;
-  font-size: 15px;
-  margin: 0;
-}
-
-
-
-#navigator {
-  background-color: #1E2A4A;
-  color: #F7F9FA;
+#camview {
+  object-fit: contain;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
 }
 
 #footer {

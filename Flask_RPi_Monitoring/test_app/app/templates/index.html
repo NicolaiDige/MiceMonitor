@@ -4,7 +4,6 @@
     <title>Monitoring Mice System V0.1</title>
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
   </head>
-
   <body>
     <div id="content">
       <div id="container">
@@ -15,18 +14,49 @@
       <div id="container">
         <div id="record_container">
           <div id="file_overview">
-            Hello
+            <table id="fixed_header">
+              <thead>
+                <tr>
+                  <th>File Name</th>
+                  <th>Start Time</th>
+                  <th>Duration</th>
+                  <th>Storage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>File_01.mp4</td>
+                  <td>11/02/2020 16:40</td>
+                  <td>00:10</td>
+                  <td>200 Mb</td>
+                </tr>
+                <tr>
+                  <td>File_01.mp4</td>
+                  <td>11/02/2020 16:40</td>
+                  <td>00:10</td>
+                  <td>200 Mb</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           <div id="record_time">
-            Hello two
+            <label id="hours">00</label>:
+            <label id="minutes">00</label>:
+            <label id="seconds">00</label>
           </div>
           <div id="record_buttons">
-            Hello three
+            {% if record==0 %}
+              <a href={{ url_for( "record") }} class="button_click">Record</a>
+              <a class="button_no_click">Stop</a>
+            {% else %}
+              <a class="button_no_click">Record</a>
+              <a href={{ url_for( "index") }} class="button_click">Stop</a>
+            {% endif %}
           </div>
         </div>
         <div id="camera_container">
           <div id="camera_view">
-            Hello 4
+            <img src="{{url_for('static', filename='images/Noir_image.jpg')}}" id="camview"/>
           </div>
         </div>
       </div>
@@ -36,4 +66,39 @@
         </div>
       </div>
   </body>
+  <script>
+    if ({{record}} == 1){
+      var hoursLabel = document.getElementById("hours");
+      var minutesLabel = document.getElementById("minutes");
+      var secondsLabel = document.getElementById("seconds");
+      var totalSeconds = 0;
+      setInterval(setTime, 1000);
+
+      function setTime() {
+        ++totalSeconds;
+        secondsLabel.innerHTML = pad(totalSeconds % 60);
+        minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+        hoursLabel.innerHTML = pad(parseInt(totalSeconds / 60 / 60));
+      }
+
+      function pad(val) {
+        var valString = val + "";
+        if (valString.length < 2) {
+          return "0" + valString;
+        } else {
+          return valString;
+        }
+      }
+    }
+    else {
+      secondsLabel.innerHTML = pad(0);
+      minutesLabel.innerHTML = pad(0);
+    }
+    </script>
+    <script>
+      setInterval(function() {
+        var myImageElement = document.getElementById('camview');
+        myImageElement.src = "{{url_for('static', filename='images/Noir_image.jpg')}}" + '?rand=' + Math.random();
+      }, 2000);
+    </script>
 </html>
