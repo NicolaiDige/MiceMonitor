@@ -23,7 +23,7 @@ def record():
 @application.route('/update', methods=['GET'])
 def update_image():
     camera.start_preview()
-    sleep(2)
+    sleep(0.5)
     camera.capture('/home/pi/MiceMonitor/Flask_RPi_Monitoring/test_app/app/static/images/Noir_image.jpg')
     camera.stop_preview()
-    return render_template('index.html', record=1)
+    return render_template('index.html', record=0)
