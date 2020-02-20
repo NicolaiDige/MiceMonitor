@@ -8,6 +8,7 @@ import zipfile
 import threading
 import json
 from time import sleep
+from picamera import PiCamera
 
 # Home page will display the ReadMe.txt file
 @application.route('/', methods=['GET'])
