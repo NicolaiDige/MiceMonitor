@@ -19,7 +19,7 @@ def record():
     return render_template('index.html', record=1)
 
 @application.route('/update', methods=['GET'])
-def record():
+def update_image():
     camera = PiCamera()
     camera.start_preview()
     sleep(2)
