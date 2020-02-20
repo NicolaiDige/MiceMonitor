@@ -32,7 +32,7 @@ def update_image():
 def record_test():
     camera.start_preview()
     camera.start_recording('/media/pi/Seagate Expansion Drive/ten_min_test.h264')
-    sleep(10*60)
+    sleep(20)
     camera.stop_recording()
     camera.stop_preview()
     return render_template('index.html', record=0)
