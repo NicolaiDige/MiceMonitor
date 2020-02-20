@@ -1,7 +1,7 @@
 from app import application, UPLOAD_FOLDER, ALLOWED_EXTENSIONS
-import glob
-import cv2
 from flask import render_template, url_for, request
+
+import glob
 import sys
 import os
 import zipfile
