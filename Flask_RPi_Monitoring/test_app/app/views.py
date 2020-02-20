@@ -16,9 +16,6 @@ camera.sensor_mode=2
 camera.resolution=(3280, 2464)
 camera.framerate=15
 
-        camera.wait_recording(10)
-    finally:
-        camera.stop_recording()
 # Home page will display the ReadMe.txt file
 @application.route('/', methods=['GET'])
 def index():
