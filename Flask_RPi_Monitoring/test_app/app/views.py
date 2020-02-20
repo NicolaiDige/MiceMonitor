@@ -7,6 +7,7 @@ import os
 import zipfile
 import threading
 import json
+import sleep
 
 # Home page will display the ReadMe.txt file
 @application.route('/', methods=['GET'])
@@ -15,4 +16,13 @@ def index():
 
 @application.route('/record', methods=['GET'])
 def record():
+    return render_template('index.html', record=1)
+
+@application.route('/update', methods=['GET'])
+def record():
+    camera = PiCamera()
+    camera.start_preview()
+    sleep(2)
+    camera.capture('/home/pi/MiceMonitor/Flask_RPi_Monitoring/test_app/app/static/images/Noir_image.jpg')
+    camera.stop_preview()
     return render_template('index.html', record=1)
