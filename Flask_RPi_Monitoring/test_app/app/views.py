@@ -31,7 +31,7 @@ def update_image():
 @application.route('/vid_test', methods=['GET'])
 def record_test():
     camera.start_preview()
-    camera.start_recording('/media/pi/Seagate Expansion Drive/ten_min_test.h264')
+    camera.start_recording('/media/pi/Seagate Expansion Drive/ten_min_test.mjpeg')
     sleep(20)
     camera.stop_recording()
     camera.stop_preview()
