@@ -11,10 +11,8 @@ from time import sleep
 from picamera import PiCamera
 
 camera = PiCamera()
-camera.sensor_mode=2
-camera.sensor_mode=2
-camera.resolution=(3280, 2464)
-camera.framerate=15
+camera.resolution=(1920, 1080)
+camera.framerate=20
 
 # Home page will display the ReadMe.txt file
 @application.route('/', methods=['GET'])
@@ -33,8 +31,8 @@ def update_image():
 
 @application.route('/vid_test', methods=['GET'])
 def record_test():
-    path = '/media/pi/Seagate Expansion Drive/ten_min_test.mjpg'
-    camera.start_recording(path, format='mjpeg', bitrate=25000000)
+    path = '/media/pi/Seagate Expansion Drive/ten_min_test.h264'
+    camera.start_recording(path)
     sleep(20)
     camera.stop_recording()
     return render_template('index.html', record=0)
