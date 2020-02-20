@@ -28,6 +28,7 @@ def record():
 def update_image():
     sleep(0.5)
     camera.capture('/home/pi/MiceMonitor/Flask_RPi_Monitoring/test_app/app/static/images/Noir_image.jpg')
+    sleep(1)
     return render_template('index.html', record=0)
 
 @application.route('/vid_test', methods=['GET'])
