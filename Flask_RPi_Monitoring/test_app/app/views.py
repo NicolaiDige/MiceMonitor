@@ -11,6 +11,14 @@ from time import sleep
 from picamera import PiCamera
 
 camera = PiCamera()
+camera.sensor_mode=2
+camera.sensor_mode=2
+camera.resolution=(3280, 2464)
+camera.framerate=15
+
+        camera.wait_recording(10)
+    finally:
+        camera.stop_recording()
 # Home page will display the ReadMe.txt file
 @application.route('/', methods=['GET'])
 def index():
@@ -22,17 +30,14 @@ def record():
 
 @application.route('/update', methods=['GET'])
 def update_image():
-    camera.start_preview()
     sleep(0.5)
     camera.capture('/home/pi/MiceMonitor/Flask_RPi_Monitoring/test_app/app/static/images/Noir_image.jpg')
-    camera.stop_preview()
     return render_template('index.html', record=0)
 
 @application.route('/vid_test', methods=['GET'])
 def record_test():
-    camera.start_preview()
-    camera.start_recording('/media/pi/Seagate Expansion Drive/ten_min_test.mjpeg')
+    path = '/media/pi/Seagate Expansion Drive/ten_min_test.mjpg'
+    camera.start_recording(path, format='mjpeg', bitrate=25000000)
     sleep(20)
     camera.stop_recording()
-    camera.stop_preview()
     return render_template('index.html', record=0)
