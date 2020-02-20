@@ -7,7 +7,7 @@ import os
 import zipfile
 import threading
 import json
-import sleep
+from time import sleep
 
 # Home page will display the ReadMe.txt file
 @application.route('/', methods=['GET'])
