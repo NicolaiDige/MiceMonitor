@@ -10,6 +10,7 @@ import json
 from time import sleep
 from picamera import PiCamera
 
+camera = PiCamera()
 # Home page will display the ReadMe.txt file
 @application.route('/', methods=['GET'])
 def index():
@@ -21,7 +22,6 @@ def record():
 
 @application.route('/update', methods=['GET'])
 def update_image():
-    camera = PiCamera()
     camera.start_preview()
     sleep(2)
     camera.capture('/home/pi/MiceMonitor/Flask_RPi_Monitoring/test_app/app/static/images/Noir_image.jpg')
