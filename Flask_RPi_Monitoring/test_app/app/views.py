@@ -33,6 +33,7 @@ def update_image():
 
 @application.route('/vid_test', methods=['GET'])
 def record_test():
+    time = request.form(['time'])
     #camera.start_preview()
     path = '/media/pi/Seagate Expansion Drive/ten_min_test.h264'
     path = '/home/pi/Desktop/ten_min_test_%d.h264'%(time.time())
