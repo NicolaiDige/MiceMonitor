@@ -33,13 +33,14 @@ def update_image():
 
 @application.route('/vid_test', methods=['GET'])
 def record_test():
-    time_arg = request.args['time']
-    print("Time is %s"%(str(time_arg)))
+    time_arg = float(request.args['time_min'])
     #camera.start_preview()
-    path = '/media/pi/Seagate Expansion Drive/ten_min_test.h264'
-    path = '/home/pi/Desktop/ten_min_test_%d.h264'%(time.time())
-    camera.start_recording(path, format='h264', intra_period=0, quality=30)
-    camera.wait_recording(10)
-    camera.stop_recording()
-    #camera.stop_preview()
+    for i in range(int(time_arg/5.0)):
+        print("Video number %d"%(i))
+        path = '/media/pi/Seagate Expansion Drive/ten_min_test.h264'
+        path = '/home/pi/Desktop/record_%d-%dmin_%d.h264'%(i*5, (i+1)*5, time.time())
+        camera.start_recording(path, format='h264', intra_period=0, quality=30)
+        camera.wait_recording(5*60)
+        camera.stop_recording()
+        #camera.stop_preview()
     return render_template('index.html', record=0)
