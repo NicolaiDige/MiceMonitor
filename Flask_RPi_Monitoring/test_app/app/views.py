@@ -13,7 +13,7 @@ import time
 
 camera = PiCamera()
 camera.resolution=(1920, 1080)
-camera.framerate=20
+camera.framerate=30
 
 # Home page will display the ReadMe.txt file
 @application.route('/', methods=['GET'])
