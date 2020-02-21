@@ -12,8 +12,8 @@ from picamera import PiCamera
 import time
 
 camera = PiCamera()
-camera.resolution=(1920, 1080)
-camera.framerate=30
+camera.resolution=(1296, 730)
+camera.framerate=25
 
 # Home page will display the ReadMe.txt file
 @application.route('/', methods=['GET'])
@@ -36,7 +36,7 @@ def record_test():
     camera.start_preview()
     path = '/media/pi/Seagate Expansion Drive/ten_min_test.h264'
     path = '/home/pi/Desktop/ten_min_test_%d.h264'%(time.time())
-    camera.start_recording(path, format='h264', intra_period=2, quality=25)
+    camera.start_recording(path, format='h264', intra_period=2, quality=30)
     camera.wait_recording(10)
     camera.stop_recording()
     camera.stop_preview()
