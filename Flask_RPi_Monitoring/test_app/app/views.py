@@ -33,11 +33,11 @@ def update_image():
 
 @application.route('/vid_test', methods=['GET'])
 def record_test():
-    camera.start_preview()
+    #camera.start_preview()
     path = '/media/pi/Seagate Expansion Drive/ten_min_test.h264'
     path = '/home/pi/Desktop/ten_min_test_%d.h264'%(time.time())
-    camera.start_recording(path, format='h264', intra_period=2, quality=30)
+    camera.start_recording(path, format='h264', intra_period=1, quality=30)
     camera.wait_recording(10)
     camera.stop_recording()
-    camera.stop_preview()
+    #camera.stop_preview()
     return render_template('index.html', record=0)
