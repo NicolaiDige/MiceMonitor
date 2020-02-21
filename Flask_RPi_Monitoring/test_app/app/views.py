@@ -36,7 +36,7 @@ def record_test():
     camera.start_preview()
     path = '/media/pi/Seagate Expansion Drive/ten_min_test.h264'
     path = '/home/pi/Desktop/ten_min_test_%d.h264'%(time.time())
-    camera.start_recording(path, format='h264', quality=23)
+    camera.start_recording(path, format='h264', intra_period=4, quality=23)
     camera.wait_recording(20)
     camera.stop_recording()
     camera.stop_preview()
