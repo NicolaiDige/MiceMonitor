@@ -52,7 +52,7 @@
         </div>
         <div id="camera_container">
           <div id="camera_view">
-            <img src="{{url_for('static', filename='images/Noir_image.jpg')}}"+"?rand="+Math.random() id="camview"/>
+            <img src="{{url_for('static', filename='images/Noir_image.jpg')}}" id="camview"/>
           </div>
         </div>
       </div>
@@ -62,7 +62,7 @@
         </div>
       </div>
       <script>
-        var refresher = setInterval(refresh_image, 2000);
+        var refresher = setInterval(refresh_image, 3000);
 
         function refresh_image() {
           var myImageElement = document.getElementById('camview');
