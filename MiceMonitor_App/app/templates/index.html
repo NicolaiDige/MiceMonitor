@@ -39,20 +39,14 @@
               </tbody>
             </table>
           </div>
-          <div id="record_time">
-            <label id="hours">00</label>:
-            <label id="minutes">00</label>:
-            <label id="seconds">00</label>
-          </div>
+          <form action="/record" method="post">
+            <input type="text" name="record_name" placeholder="video_name" />
+            <input type="text" name="record_time" placeholder="00:00:00" />
+            <input type="submit" value="Start Recording"/>
+            </form>
           <div id="record_buttons">
-            {% if record==0 %}
-              <a href={{ url_for( "record") }} class="button_click">Record</a>
-              <a class="button_no_click">Stop</a>
-            {% else %}
-              <a class="button_no_click">Record</a>
-              <a href={{ url_for( "index") }} class="button_click">Stop</a>
-            {% endif %}
-            <a href={{ url_for( "index") }} class="button_click">Update View</a>
+            <a href={{ url_for( "stop_record") }} class="button_click">Stop Recording</a>
+            <a href={{ url_for( "update_image") }} class="button_click">Update View</a>
           </div>
         </div>
         <div id="camera_container">
@@ -67,39 +61,4 @@
         </div>
       </div>
   </body>
-  <script>
-    if ({{record}} == 1){
-      var hoursLabel = document.getElementById("hours");
-      var minutesLabel = document.getElementById("minutes");
-      var secondsLabel = document.getElementById("seconds");
-      var totalSeconds = 0;
-      setInterval(setTime, 1000);
-
-      function setTime() {
-        ++totalSeconds;
-        secondsLabel.innerHTML = pad(totalSeconds % 60);
-        minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
-        hoursLabel.innerHTML = pad(parseInt(totalSeconds / 60 / 60));
-      }
-
-      function pad(val) {
-        var valString = val + "";
-        if (valString.length < 2) {
-          return "0" + valString;
-        } else {
-          return valString;
-        }
-      }
-    }
-    else {
-      secondsLabel.innerHTML = pad(0);
-      minutesLabel.innerHTML = pad(0);
-    }
-    </script>
-    <script>
-      setInterval(function() {
-        var myImageElement = document.getElementById('camview');
-        myImageElement.src = "{{url_for('static', filename='images/Noir_image.jpg')}}" + '?rand=' + Math.random();
-      }, 30000);
-    </script>
 </html>

@@ -70,7 +70,7 @@
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  width: 50px;
+  width: 100px;
 }
 
 .button_no_click {
@@ -83,8 +83,29 @@
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
-  width: 50px;
+  width: 100px;
 }
+
+.form-group{
+  background-color: #AAAAAA;
+  border: none;
+  color: white;
+  display: inline-block;
+  font-size: 16px;
+  width: 10px;
+  margin-left: 5px;
+}
+
+.record-but{
+  background-color: #AAAAAA;
+  border: none;
+  color: white;
+  display: inline-block;
+  font-size: 16px;
+  width: 30px;
+  margin-left: 10px;
+}
+
 
 #record_buttons {
   margin-bottom: 5%;
