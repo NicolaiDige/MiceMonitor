@@ -67,7 +67,7 @@ def stop_record():
 def update_image():
     sleep(0.5)
     print("doing the thing")
-    camera.capture('/home/pi/MiceMonitor/Flask_RPi_Monitoring/test_app/app/static/images/Noir_image.jpg')
+    camera.capture('/home/pi/MiceMonitor/MiceMonitor_App/app/static/images/Noir_image.jpg')
     sleep(0.5)
     return render_template('index.html', record=0)
 
@@ -83,25 +83,6 @@ def convert_videos():
         os.system("MP4Box -add \"%s\" \"%s\""%(old_path, new_path))
         os.system("rm \"%s\""%(old_path))
 
-    return render_template('index.html', record=0)
+    print("\n-----\nConversion DONE!\n-----\n")
 
-
-@application.route('/vid_test', methods=['GET'])
-def record_test():
-    time_arg = float(request.args['time_min'])
-    #camera.start_preview()
-    """
-    for i in range(int(time_arg/5.0)):
-        camera.start_preview()
-        print("Video number %d"%(i))
-        path = '/media/pi/Seagate Expansion Drive/ten_min_test.h264'
-        path = '/home/pi/Desktop/record_%d-%dmin_%d.h264'%(i*5, (i+1)*5, time.time())
-        camera.start_recording(path, format='h264', intra_period=0, quality=30)
-        camera.wait_recording(5*60)
-        camera.stop_recording()
-        camera.stop_preview()
-    """
-
-    # Insert conversion using method at
-    # https://raspi.tv/2013/another-way-to-convert-raspberry-pi-camera-h264-output-to-mp4
     return render_template('index.html', record=0)
