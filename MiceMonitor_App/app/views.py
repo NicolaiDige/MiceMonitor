@@ -8,14 +8,12 @@ import zipfile
 import threading
 import json
 from time import sleep
-#from picamera import PiCamera
+from picamera import PiCamera
 import time
 
-"""
 camera = PiCamera()
 camera.resolution=(1296, 730)
 camera.framerate=25
-"""
 five_min_in_sec = 60*5.0
 
 global record_active
