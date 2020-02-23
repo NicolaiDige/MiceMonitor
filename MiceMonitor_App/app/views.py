@@ -74,6 +74,7 @@ def update_image():
 @application.route('/convert_videos', methods=['GET'])
 def convert_videos():
     videos = glob.glob("/media/pi/Seagate Expansion Drive/*/*.h264")
+    videos = videos + glob.glob("/media/pi/Seagate Expansion Drive/*.h264")
 
     for video in videos:
         old_path = video
