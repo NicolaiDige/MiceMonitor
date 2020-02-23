@@ -21,10 +21,13 @@ record_active = False
 
 def record_video(time_sec, video_name):
     global record_active
+    dir = "/media/pi/Seagate Expansion Drive/%s"%(video_name)
+    if not os.path.exists(dir):
+        os.mkdir(dir)
+
     for i in range(0,int(time_sec/five_min_in_sec)):
         camera.start_preview()
-        path = '/media/pi/Seagate Expansion Drive/%s_%d-%dmin.h264'%(
-            video_name, i*5, (i+1)*5)
+        path = '%d/%s_%d-%dmin.h264'%(dir, video_name, i*5, (i+1)*5)
         camera.start_recording(path, format='h264', intra_period=0, quality=30)
         camera.wait_recording(5*60)
         camera.stop_recording()
@@ -48,7 +51,6 @@ def record():
     name = request.form['record_name']
     time = [int(x) for x in time.split(":")]
     seconds = float(time[0]*60**2 + time[1]*60 + 60)
-
     record_active = True
     video_thread = threading.Thread(target=record_video, args=(seconds, name,))
     video_thread.start()
