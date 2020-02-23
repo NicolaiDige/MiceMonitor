@@ -49,13 +49,17 @@ def index():
 def record():
     time = request.form['record_time']
     name = request.form['record_name']
-    time = [int(x) for x in time.split(":")]
-    seconds = float(time[0]*60**2 + time[1]*60 + 60)
-    record_active = True
-    video_thread = threading.Thread(target=record_video, args=(seconds, name,))
-    video_thread.start()
 
-    return render_template('index.html', record=0)
+    if len(name) == 0 or len(time) == 0:
+        return 404
+    else:
+        time = [int(x) for x in time.split(":")]
+        seconds = float(time[0]*60**2 + time[1]*60 + 60)
+        record_active = True
+        video_thread = threading.Thread(target=record_video, args=(seconds, name,))
+        video_thread.start()
+
+        return render_template('index.html', record=0)
 
 @application.route('/stop_recording', methods=['GET'])
 def stop_record():
