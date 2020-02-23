@@ -53,8 +53,11 @@ def record():
     if len(name) == 0 or len(time) == 0:
         return 404
     else:
+        seconds = 0
         time = [int(x) for x in time.split(":")]
-        seconds = float(time[0]*60**2 + time[1]*60 + 60)
+        time.reverse()
+        for i in range(time):
+            seconds += float(time[i]*60**i)
         record_active = True
         video_thread = threading.Thread(target=record_video, args=(seconds, name,))
         video_thread.start()
