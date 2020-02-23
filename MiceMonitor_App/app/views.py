@@ -56,7 +56,7 @@ def record():
         seconds = 0
         time = [int(x) for x in time.split(":")]
         time.reverse()
-        for i in range(time):
+        for i in range(len(time)):
             seconds += float(time[i]*60**i)
         record_active = True
         video_thread = threading.Thread(target=record_video, args=(seconds, name,))
