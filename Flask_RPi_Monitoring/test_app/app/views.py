@@ -36,11 +36,15 @@ def record_test():
     time_arg = float(request.args['time_min'])
     #camera.start_preview()
     for i in range(int(time_arg/5.0)):
+        camera.start_preview()
         print("Video number %d"%(i))
         path = '/media/pi/Seagate Expansion Drive/ten_min_test.h264'
         path = '/home/pi/Desktop/record_%d-%dmin_%d.h264'%(i*5, (i+1)*5, time.time())
         camera.start_recording(path, format='h264', intra_period=0, quality=30)
         camera.wait_recording(5*60)
         camera.stop_recording()
-        #camera.stop_preview()
+        camera.stop_preview()
+
+    # Insert conversion using method at
+    # https://raspi.tv/2013/another-way-to-convert-raspberry-pi-camera-h264-output-to-mp4
     return render_template('index.html', record=0)
