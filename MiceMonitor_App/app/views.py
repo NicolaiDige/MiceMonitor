@@ -23,7 +23,7 @@ record_active = False
 
 def record_video(time_sec, video_name):
     global record_active
-    for i in range(0,int(seconds/five_min_in_sec)):
+    for i in range(0,int(time_sec/five_min_in_sec)):
         camera.start_preview()
         path = '/media/pi/Seagate Expansion Drive/%s_%d-%dmin.h264'%(
             video_name, i*5, (i+1)*5)
