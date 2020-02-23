@@ -66,8 +66,8 @@
 
         function refresh_image() {
           var myImageElement = document.getElementById('camview');
-          myImageElement.src = {url_for('static', filename='images/Noir_image.jpg')} +'?rand=' + Math.random();
-        };
+          myImageElement.src = url_for('static', filename='images/Noir_image.jpg') +'?rand=' + Math.random();
+        }
       </script>
 
   </body>
