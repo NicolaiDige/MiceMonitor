@@ -79,7 +79,7 @@ def convert_videos():
         old_path = video
         new_path = video[:-5] + ".mp4"
         print("%s to %s"%(old_path, new_path))
-        os.system("MP4Box -add %s %s"%(old_path, new_path))
+        os.system("MP4Box -add \"%s\" \"%s\""%(old_path, new_path))
 
     return render_template('index.html', record=0)
 
