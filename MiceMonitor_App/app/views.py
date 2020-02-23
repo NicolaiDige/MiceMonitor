@@ -47,6 +47,7 @@ def index():
 
 @application.route('/record', methods=['GET', 'POST'])
 def record():
+    global record_active
     time = request.form['record_time']
     name = request.form['record_name']
 
