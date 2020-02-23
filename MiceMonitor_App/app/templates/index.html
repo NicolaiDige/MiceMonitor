@@ -62,10 +62,14 @@
         </div>
       </div>
       <script>
-        setInterval(function() {
+        function refresh_image() {
+          setInterval(function() {
             var myImageElement = document.getElementById('camview');
             myImageElement.src = {url_for('static', filename='images/Noir_image.jpg')} +'?rand=' + Math.random();
-        }, 5000);
+          }, 5000);
+        }
+        refresh_image();
       </script>
+
   </body>
 </html>
