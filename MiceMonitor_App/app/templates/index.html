@@ -62,13 +62,21 @@
         </div>
       </div>
       <script>
+      var myVar = setInterval(myTimer, 1000);
+
+      function myTimer() {
+        var d = new Date();
+        var t = d.toLocaleTimeString();
+        document.getElementById("demo").innerHTML = t;
+      }
+      </script>
+      <script>
+        var refresher = setInterval(refresh_image, 5000);
+
         function refresh_image() {
-          setInterval(function() {
-            var myImageElement = document.getElementById('camview');
-            myImageElement.src = {url_for('static', filename='images/Noir_image.jpg')} +'?rand=' + Math.random();
-          }, 5000);
-        }
-        refresh_image();
+          var myImageElement = document.getElementById('camview');
+          myImageElement.src = {url_for('static', filename='images/Noir_image.jpg')} +'?rand=' + Math.random();
+        };
       </script>
 
   </body>
