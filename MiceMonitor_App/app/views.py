@@ -55,7 +55,7 @@ def record():
     video_thread = threading.Thread(target=record_video, args=(seconds, name,))
     video_thread.start()
 
-    return render_template('index.html', record=1)
+    return render_template('index.html', record=0)
 
 @application.route('/stop_recording', methods=['GET'])
 def stop_record():
@@ -70,6 +70,18 @@ def update_image():
     camera.capture('/home/pi/MiceMonitor/Flask_RPi_Monitoring/test_app/app/static/images/Noir_image.jpg')
     sleep(0.5)
     return render_template('index.html', record=0)
+
+@application.route('/convert_videos', methods=['GET'])
+def convert_videos():
+    videos = glob.glob("/media/pi/Seagate Expansion Drive/*/*.h264")
+
+    for video in videos:
+        old_path = video
+        new_path = video[:-4] + ".mp4"
+        os.system("MP4Box -add %s %s"%(old_path, new_path))
+
+    return render_template('index.html', record=0)
+
 
 @application.route('/vid_test', methods=['GET'])
 def record_test():
