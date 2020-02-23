@@ -27,7 +27,7 @@ def record_video(time_sec, video_name):
 
     for i in range(0,int(time_sec/five_min_in_sec)):
         camera.start_preview()
-        path = '%d/%s_%d-%dmin.h264'%(dir, video_name, i*5, (i+1)*5)
+        path = '%s/%s_%d-%dmin.h264'%(dir, video_name, i*5, (i+1)*5)
         camera.start_recording(path, format='h264', intra_period=0, quality=30)
         camera.wait_recording(5*60)
         camera.stop_recording()
