@@ -23,11 +23,11 @@ record_active = False
 def record_video(time_sec, video_name):
     global record_active
     dir = "/media/pi/Seagate Expansion Drive/%s"%(video_name)
-    file = open("%s/info.txt"%(dir), 'w+')
-    file.write("Started at: %s"%(str(datetime.now())))
-
     if not os.path.exists(dir):
         os.mkdir(dir)
+
+    file = open("%s/info.txt"%(dir), 'w+')
+    file.write("Started at: %s"%(str(datetime.now())))
 
     for i in range(0,int(time_sec/five_min_in_sec)):
         #camera.start_preview()
