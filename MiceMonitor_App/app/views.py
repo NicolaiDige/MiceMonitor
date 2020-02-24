@@ -27,7 +27,7 @@ def record_video(time_sec, video_name):
         os.mkdir(dir)
 
     file = open("%s/info.txt"%(dir), 'w+')
-    file.write("Started at: %s"%(str(datetime.now())))
+    file.write("Started at: %s\n"%(str(datetime.now())))
 
     for i in range(0,int(time_sec/five_min_in_sec)):
         #camera.start_preview()
