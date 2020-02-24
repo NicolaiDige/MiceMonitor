@@ -10,6 +10,7 @@ import json
 from time import sleep
 from picamera import PiCamera
 import time
+from datetime import datetime
 
 camera = PiCamera()
 camera.resolution=(1296, 730)
@@ -22,6 +23,9 @@ record_active = False
 def record_video(time_sec, video_name):
     global record_active
     dir = "/media/pi/Seagate Expansion Drive/%s"%(video_name)
+    file = open("%s/info.txt"%(dir), 'w+')
+    file.write("Started at: %s"%(str(datetime.now())))
+
     if not os.path.exists(dir):
         os.mkdir(dir)
 
@@ -35,6 +39,8 @@ def record_video(time_sec, video_name):
                 break
         camera.stop_recording()
         #camera.stop_preview()
+
+    file.write("Stopped at: %s"%(str(datetime.now())))
 
     record_active = False
     print("Recording stopped")
