@@ -38,6 +38,8 @@ def record_video(time_sec, video_name):
             if record_active==False:
                 break
         camera.stop_recording()
+        if record_active==False:
+            break
         #camera.stop_preview()
 
     file.write("Stopped at: %s"%(str(datetime.now())))
