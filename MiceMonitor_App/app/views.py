@@ -16,6 +16,7 @@ camera = PiCamera()
 camera.resolution=(1296, 730)
 camera.framerate=25
 five_min_in_sec = 60*5.0
+fifteen_min_in_sec = 60.0*15.0
 
 global record_active
 record_active = False
@@ -29,11 +30,11 @@ def record_video(time_sec, video_name):
     file = open("%s/info.txt"%(dir), 'w+')
     file.write("Started at: %s\n"%(str(datetime.now())))
 
-    for i in range(0,int(time_sec/five_min_in_sec)):
+    for i in range(0,int(time_sec/fifteen_min_in_sec)):
         #camera.start_preview()
-        path = '%s/%s_%d-%dmin.h264'%(dir, video_name, i*5, (i+1)*5)
+        path = '%s/%s_%.4d-%.4dmin.h264'%(dir, video_name, i*15, (i+1)*15)
         camera.start_recording(path, format='h264', intra_period=0, quality=30)
-        for i in range(int((5*60)/2)):
+        for i in range(int((fifteen_min_in_sec)/2)):
             camera.wait_recording(2)
             if record_active==False:
                 break
